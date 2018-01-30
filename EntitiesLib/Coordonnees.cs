@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EntitiesLib
 {
-    public class Class1
+    class Coordonnees
     {
     }
 }

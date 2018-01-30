@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace EntitiesLib
 {
-    class Contacts
+    class Profession
     {
+        private int id;
+        private string titre;
+        private string nomEntreprise;
+        private int id_personne;
     }
 }
