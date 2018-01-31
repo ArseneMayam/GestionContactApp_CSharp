@@ -12,7 +12,7 @@ namespace EntitiesLib
         private string rue;
         private string codePostal;
         private string ville;
-        private string pays;
+        private string pays ;
 
 
         public Adresse() { }
