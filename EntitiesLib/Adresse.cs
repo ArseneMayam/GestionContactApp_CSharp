@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 namespace EntitiesLib
 {
-    class Adresse
+    public class Adresse
     {
         private int id;
         private string rue;
         private string codePostal;
         private string ville;
         private string pays;
+        private int id_personne; // optionnelle
 
 
         public Adresse() { }

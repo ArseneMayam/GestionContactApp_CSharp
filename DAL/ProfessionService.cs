@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EntitiesLib
+namespace DAL
 {
-   public class Coordonnees
+    class ProfessionService
     {
     }
 }

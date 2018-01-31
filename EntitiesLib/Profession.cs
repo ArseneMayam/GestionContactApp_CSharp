@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EntitiesLib
 {
-    class Profession
+    public class Profession
     {
         private int id;
         private string titre;
