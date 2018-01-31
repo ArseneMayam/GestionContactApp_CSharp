@@ -1,0 +1,22 @@
+﻿<Window x:Class="UI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UI"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="495.8" Width="787.8">
+    <Grid>
+        <Image Source="images/background_contacts.jpg" x:Name="image" HorizontalAlignment="Left" Height="466" VerticalAlignment="Top" Width="782" Stretch="UniformToFill" Margin="0,0,-0.4,0"/>
+        <Image Source="images/contacts.png" x:Name="image1" HorizontalAlignment="Left" Height="100" Margin="10,10,0,0" VerticalAlignment="Top" Width="100"/>
+        <Label x:Name="lbl_titre" Content="Mes Contacts" HorizontalAlignment="Left" Margin="115,41,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="22"/>
+        <ListBox Opacity="0.5" x:Name="listBox" HorizontalAlignment="Left" Height="341" Margin="10,115,0,0" VerticalAlignment="Top" Width="468" Foreground="#FFEBD1D1"/>
+        <Button x:Name="btn_afficher_tout" Content="AFFICHER TOUS LES CONTACTS" HorizontalAlignment="Left" Margin="517,115,0,0" VerticalAlignment="Top" Width="255" Height="44" BorderThickness="3,2" FontWeight="Bold" FontSize="14"/>
+        <Button x:Name="btn_supprimer" Content="SUPPRIMER" HorizontalAlignment="Left" Margin="661,250,0,0" VerticalAlignment="Top" Width="111" Height="44" BorderThickness="3,2" FontSize="14" FontWeight="Bold"/>
+        <Button x:Name="btn_rechercher" Content="RECHERCHER" HorizontalAlignment="Left" Margin="517,177,0,0" VerticalAlignment="Top" Width="255" Height="44" BorderThickness="3,2" FontSize="14" FontWeight="Bold"/>
+        <Button x:Name="btn_ajouter" Content="AJOUTER" HorizontalAlignment="Left" Margin="517,250,0,0" VerticalAlignment="Top" Width="111" Height="44" BorderThickness="3,2" FontWeight="Bold" FontSize="14"/>
+        <Label x:Name="lbl_recherche_rapide" Content="RECHERCHE RAPIDE" HorizontalAlignment="Left" Margin="570,324,0,0" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Width="148" Background="#FFE5EB99"/>
+        <ComboBox x:Name="combox_recherche_rapide" HorizontalAlignment="Left" Margin="517,374,0,0" VerticalAlignment="Top" Width="255" Height="40" SelectionChanged="comboBox_SelectionChanged"/>
+
+    </Grid>
+</Window>
