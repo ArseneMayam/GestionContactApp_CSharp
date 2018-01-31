@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EntitiesLib
 {
-    class Contact
+   public class Contact
     {
         private int id;
         private int id_personne;
