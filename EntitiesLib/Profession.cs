@@ -12,8 +12,11 @@ namespace EntitiesLib
         private string titre;
         private string nomEntreprise;
         private int id_personne;
+
         //constructeurs
         public Profession() { }
+
+
         public Profession(int id, string titre, string nomEntreprise, int id_personne)
         {
             this.id = id;
@@ -21,6 +24,7 @@ namespace EntitiesLib
             this.nomEntreprise = nomEntreprise;
             this.id_personne = id_personne;
         }
+
         public Profession(int id, string titre, string nomEntreprise)
         {
             this.id = id;
@@ -38,10 +42,39 @@ namespace EntitiesLib
         {
             get { return this.titre; }
             set { this.titre = value; }
+
+
+
+        public int Id
+        {
+            get
+            {
+                return id;
+            }
+
+            set
+            {
+                id = value;
+            }
+        }
+
+        public string Titre
+        {
+            get
+            {
+                return titre;
+            }
+
+            set
+            {
+                titre = value;
+            }
+
         }
 
         public string NomEntreprise
         {
+
             get { return this.nomEntreprise; }
             set { this.nomEntreprise = value; }
         }
@@ -51,5 +84,6 @@ namespace EntitiesLib
             set { this.id_personne = value; }
         }
 
+       
     }
 }
