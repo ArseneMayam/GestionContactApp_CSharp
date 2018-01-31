@@ -21,6 +21,10 @@ namespace EntitiesLib
             this.Id_personne = id_personne;
         }
 
+        public CategoriePersonne(string titre)
+        {
+            this.titre = titre;
+        }
 
         public int Id
         {

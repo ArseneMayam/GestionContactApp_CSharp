@@ -16,12 +16,11 @@ namespace EntitiesLib
         private int id_categoriePersonne;
         private int id_coordonnees;
         private int id_adresse;
-
         private Profession profession;
         private CategoriePersonne categorie;
         private Coordonnees coord;
         private Adresse adresse;
-
+        //constructeurs
         public Personne() { }
 
         public Personne(int id, string nom, string prenom, int age, int id_profession, int id_categoriePersonne, int id_coordonnees, int id_adresse, Profession profession, CategoriePersonne categorie, Coordonnees coord, Adresse adresse)
@@ -40,7 +39,19 @@ namespace EntitiesLib
             this.Adresse = adresse;
         }
 
+        public Personne(int id, string nom, string prenom, int age, Profession profession, CategoriePersonne categorie, Coordonnees coord, Adresse adresse)
+        {
+            this.id = id;
+            this.nom = nom;
+            this.prenom = prenom;
+            this.age = age;
+            this.profession = profession;
+            this.categorie = categorie;
+            this.coord = coord;
+            this.adresse = adresse;
+        }
 
+        // propriétés
         public int Id
         {
             get
@@ -145,7 +156,7 @@ namespace EntitiesLib
             }
         }
 
-        internal Profession Profession
+        public Profession Profession
         {
             get
             {
@@ -158,7 +169,7 @@ namespace EntitiesLib
             }
         }
 
-        internal CategoriePersonne Categorie
+        public CategoriePersonne Categorie
         {
             get
             {
@@ -171,7 +182,7 @@ namespace EntitiesLib
             }
         }
 
-        internal Coordonnees Coord
+        public Coordonnees Coord
         {
             get
             {
@@ -184,7 +195,7 @@ namespace EntitiesLib
             }
         }
 
-        internal Adresse Adresse
+        public Adresse Adresse
         {
             get
             {

@@ -27,6 +27,13 @@ namespace EntitiesLib
             this.Pays = pays;
         }
 
+        public Adresse(string rue, string codePostal, string ville, string pays)
+        {
+            this.rue = rue;
+            this.codePostal = codePostal;
+            this.ville = ville;
+            this.pays = pays;
+        }
 
         public int Id
         {
