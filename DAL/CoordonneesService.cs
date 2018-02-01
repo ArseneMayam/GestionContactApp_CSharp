@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace DAL
 {
     //{}
-    class CoordonneesService
+    public class CoordonneesService
     {
         public static List<Coordonnees> GetAll()
         {

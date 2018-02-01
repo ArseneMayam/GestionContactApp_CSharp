@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace DAL
 {
     //{}
-    class PersonneService
+    public class PersonneService
     {
         // méthodes de recherche et d'affichage
         public static List<Personne> GetAll()

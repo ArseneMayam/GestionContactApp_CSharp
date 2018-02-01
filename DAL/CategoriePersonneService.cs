@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace DAL
 {
     //{}
-    class CategoriePersonneService
+    public class CategoriePersonneService
     {
         public static List<CategoriePersonne> GetAll()
         {
@@ -39,7 +39,7 @@ namespace DAL
             }
             return liste;
         }
-        internal static void Delete(int id)
+        public static void Delete(int id)
         {
             //using (SqlConnection conn = new SqlConnection(connectionString: @"Data Source=VIEWW7-2013-408\SQLEXPRESS;Initial Catalog=MyTest;Integrated Security=True;Connect Timeout=30"))
             string connStr = ConfigurationManager.ConnectionStrings["MyConnectionString"].ConnectionString;
@@ -54,7 +54,7 @@ namespace DAL
                 }
             }
         }
-        internal static void add(CategoriePersonne c)
+        public static void add(CategoriePersonne c)
         {
             //using (SqlConnection conn = new SqlConnection(connectionString: @"Data Source=VIEWW7-2013-408\SQLEXPRESS;Initial Catalog=MyTest;Integrated Security=True;Connect Timeout=30"))
             string connStr = ConfigurationManager.ConnectionStrings["MyConnectionString"].ConnectionString;
