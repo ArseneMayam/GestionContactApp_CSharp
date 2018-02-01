@@ -15,7 +15,9 @@ namespace DAL
         public static List<Profession> GetAll()
         {
             List<Profession> liste = null;
-            using (SqlConnection conn = new SqlConnection(connectionString: @"Data Source=VIEWW7-2013-408\SQLEXPRESS;Initial Catalog=MyTest;Integrated Security=True;Connect Timeout=30"))
+            //using (SqlConnection conn = new SqlConnection(connectionString: @"Data Source=VIEWW7-2013-408\SQLEXPRESS;Initial Catalog=MyTest;Integrated Security=True;Connect Timeout=30"))
+            string connStr = ConfigurationManager.ConnectionStrings["MyConnectionString"].ConnectionString;
+            using (SqlConnection conn = new SqlConnection(connStr))
             {
                 conn.Open();
                 using (SqlCommand cmd = conn.CreateCommand())
