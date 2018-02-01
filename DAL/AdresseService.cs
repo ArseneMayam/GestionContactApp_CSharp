@@ -10,7 +10,7 @@ using System.Configuration;
 namespace DAL
 {
     // {}
-    class AdresseService
+    public class AdresseService
     {
         public static List<Adresse> GetAll()
         {

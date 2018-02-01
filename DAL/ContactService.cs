@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace DAL
 {
     //{}
-    class ContactService
+    public class ContactService
     {
         public static void Add(int id)
         {

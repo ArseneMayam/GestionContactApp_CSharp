@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace DAL
 {
     //{}
-    class ProfessionService
+    public class ProfessionService
     {
         public static List<Profession> GetAll()
         {
