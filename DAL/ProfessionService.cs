@@ -64,5 +64,24 @@ namespace DAL
                 }
             }
         }
+        public static void Add(Profession p)
+        {
+            //using (SqlConnection conn = new SqlConnection(connectionString: @"Data Source=VIEWW7-2013-408\SQLEXPRESS;Initial Catalog=MyTest;Integrated Security=True;Connect Timeout=30"))
+            string connStr = ConfigurationManager.ConnectionStrings["MyConnectionString"].ConnectionString;
+            using (SqlConnection conn = new SqlConnection(connStr))
+            {
+                conn.Open();
+                using (SqlCommand cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = "insert into profession(titre, nomEntreprise, id_personne)" +
+                        "values('@Titre', '@NomEntreprise', '@Id_personne')";
+                    cmd.Parameters.AddWithValue("@Titre", p.Titre);
+                    cmd.Parameters.AddWithValue("@NomEntreprise", p.NomEntreprise);
+                    cmd.Parameters.AddWithValue("@Id_personne", p.Id_personne);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+
+        }
     }
 }

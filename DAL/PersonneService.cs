@@ -214,5 +214,35 @@ namespace DAL
                 }
             }
         }
+        //méthode pour ajouter
+        public static void Add(Personne p)
+        {
+
+            //using (SqlConnection conn = new SqlConnection(connectionString: @"Data Source=VIEWW7-2013-408\SQLEXPRESS;Initial Catalog=MyTest;Integrated Security=True;Connect Timeout=30"))
+            string connStr = ConfigurationManager.ConnectionStrings["MyConnectionString"].ConnectionString;
+            using (SqlConnection conn = new SqlConnection(connStr))
+            {
+                conn.Open();
+                using (SqlCommand cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = "insert into personne(nom, prenom, age, id_profession, id_categoriePersonne, id_adresse, id_coordonnees)" +
+                        "values('@Nom', '@Prenom','@Age', '@Id_profession','@Id_CategoriePersonne', '@Id_adresse','@Id_coordonnees')";
+                    cmd.Parameters.AddWithValue("@Nom", p.Nom);
+                    cmd.Parameters.AddWithValue("@Prenom", p.Prenom);
+                    cmd.Parameters.AddWithValue("@Age", p.Age);
+                    cmd.Parameters.AddWithValue("@Id_profession", p.Id_profession);
+                    cmd.Parameters.AddWithValue("@Id_CategoriePersonne", p.Id_categoriePersonne);
+                    cmd.Parameters.AddWithValue("@Id_adresse", p.Id_adresse);
+                    cmd.Parameters.AddWithValue("@Id_coordonnees", p.Id_coordonnees);
+                    cmd.ExecuteNonQuery();
+                    // appelle methodes add d'autres tables correspondants peronne
+                    ContactService.Add(p.Id);
+                    AdresseService.Add(p.Adresse);
+                    CategoriePersonneService.add(p.Categorie);
+                    CoordonneesService.Add(p.Coord);
+                    ProfessionService.Add(p.Profession);
+                }
+            }
+        }
     }
 }

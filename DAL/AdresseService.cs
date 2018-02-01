@@ -88,11 +88,11 @@ namespace DAL
                 {
                     cmd.CommandText = "insert into adresse(rue, code_postal, ville, pays, id_personne)"
                                       +"values('@Rue', '@Code_postal','@Ville', '@Pays', '@Id_personne')";
-                    cmd.Parameters.Add(new SqlParameter("@Rue", a.Rue));
-                    cmd.Parameters.Add(new SqlParameter("@Code_postal", a.CodePostal));
-                    cmd.Parameters.Add(new SqlParameter("@Ville", a.Ville));
-                    cmd.Parameters.Add(new SqlParameter("@Pays", a.Pays));
-                    cmd.Parameters.Add(new SqlParameter("@Id_personne", a.Id_personne));
+                    cmd.Parameters.AddWithValue("@Rue", a.Rue);
+                    cmd.Parameters.AddWithValue("@Code_postal", a.CodePostal);
+                    cmd.Parameters.AddWithValue("@Ville", a.Ville);
+                    cmd.Parameters.AddWithValue("@Pays", a.Pays);
+                    cmd.Parameters.AddWithValue("@Id_Personne", a.Id_personne);
                     cmd.ExecuteNonQuery();
                 }
             }

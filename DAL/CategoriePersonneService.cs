@@ -56,6 +56,21 @@ namespace DAL
         }
         internal static void add(CategoriePersonne c)
         {
+            //using (SqlConnection conn = new SqlConnection(connectionString: @"Data Source=VIEWW7-2013-408\SQLEXPRESS;Initial Catalog=MyTest;Integrated Security=True;Connect Timeout=30"))
+            string connStr = ConfigurationManager.ConnectionStrings["MyConnectionString"].ConnectionString;
+            using (SqlConnection conn = new SqlConnection(connStr))
+            {
+                conn.Open();
+                using (SqlCommand cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = "insert into categoriePersonne(titre, id_personne)"+
+                        "values('@Titre', '@Id_personne')";
+                    cmd.Parameters.AddWithValue("@Titre", c.Titre);
+                    cmd.Parameters.AddWithValue("@Id_personne", c.Id_personne);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+
         }
     }
 }

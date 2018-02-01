@@ -12,8 +12,21 @@ namespace DAL
     //{}
     class ContactService
     {
-        public static void Add(Contact c)
+        public static void Add(int id)
         {
+            //using (SqlConnection conn = new SqlConnection(connectionString: @"Data Source=VIEWW7-2013-408\SQLEXPRESS;Initial Catalog=MyTest;Integrated Security=True;Connect Timeout=30"))
+            string connStr = ConfigurationManager.ConnectionStrings["MyConnectionString"].ConnectionString;
+            using (SqlConnection conn = new SqlConnection(connStr))
+            {
+                conn.Open();
+                using (SqlCommand cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = "insert into contact(id_personne)" +
+                        "values('@Id_personne')";
+                    cmd.Parameters.AddWithValue("@Id_personne", id);
+                    cmd.ExecuteNonQuery();
+                }
+            }
         }
         public static void Delete(int id)
         {

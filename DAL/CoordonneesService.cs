@@ -43,6 +43,22 @@ namespace DAL
         }
         public static void Add(Coordonnees c)
         {
+            //using (SqlConnection conn = new SqlConnection(connectionString: @"Data Source=VIEWW7-2013-408\SQLEXPRESS;Initial Catalog=MyTest;Integrated Security=True;Connect Timeout=30"))
+            string connStr = ConfigurationManager.ConnectionStrings["MyConnectionString"].ConnectionString;
+            using (SqlConnection conn = new SqlConnection(connStr))
+            {
+                conn.Open();
+                using (SqlCommand cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = "insert into coordonnees(telephone, fax, email, id_personne)" +
+                        "values('@Telephone', '@Fax', '@Email', '@Id_personne')";
+                    cmd.Parameters.AddWithValue("@Telephone", c.Telephone);
+                    cmd.Parameters.AddWithValue("@Fax", c.Fax);
+                    cmd.Parameters.AddWithValue("@Email", c.Email);
+                    cmd.Parameters.AddWithValue("@Id_personne", c.Id_personne);
+                    cmd.ExecuteNonQuery();
+                }
+            }
 
         }
         public static void Edit(Coordonnees c)
