@@ -43,35 +43,7 @@ namespace EntitiesLib
             get { return this.titre; }
             set { this.titre = value; }
 
-
-
-        public int Id
-        {
-            get
-            {
-                return id;
-            }
-
-            set
-            {
-                id = value;
-            }
         }
-
-        public string Titre
-        {
-            get
-            {
-                return titre;
-            }
-
-            set
-            {
-                titre = value;
-            }
-
-        }
-
         public string NomEntreprise
         {
 
