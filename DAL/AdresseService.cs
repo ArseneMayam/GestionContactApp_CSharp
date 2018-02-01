@@ -15,8 +15,9 @@ namespace DAL
         public static List<Adresse> GetAll()
         {
             List<Adresse> liste = null;
-            //string connectStr = ConfigurationManager.ConnectionStrings["MyConnectionString"].ConnectionString; ;
-            using (SqlConnection conn = new SqlConnection(connectionString: @"Data Source=VIEWW7-2013-408\SQLEXPRESS;Initial Catalog=MyTest;Integrated Security=True;Connect Timeout=30"))
+            // using (SqlConnection conn = new SqlConnection(connectionString: @"Data Source=VIEWW7-2013-408\SQLEXPRESS;Initial Catalog=MyTest;Integrated Security=True;Connect Timeout=30"))
+            string connStr = ConfigurationManager.ConnectionStrings["MyConnectionString"].ConnectionString;
+            using (SqlConnection conn = new SqlConnection(connStr))
             {
                 conn.Open();
                 using (SqlCommand cmd = conn.CreateCommand())
@@ -43,7 +44,9 @@ namespace DAL
         }
         public static void Edit(Adresse a)
         {
-            using (SqlConnection conn = new SqlConnection(connectionString: @"Data Source=VIEWW7-2013-408\SQLEXPRESS;Initial Catalog=MyTest;Integrated Security=True;Connect Timeout=30"))
+            // using (SqlConnection conn = new SqlConnection(connectionString: @"Data Source=VIEWW7-2013-408\SQLEXPRESS;Initial Catalog=MyTest;Integrated Security=True;Connect Timeout=30"))
+            string connStr = ConfigurationManager.ConnectionStrings["MyConnectionString"].ConnectionString;
+            using (SqlConnection conn = new SqlConnection(connStr))
             {
                 conn.Open();
                 using (SqlCommand cmd = conn.CreateCommand())
@@ -60,7 +63,9 @@ namespace DAL
         }
         public static void Delete(int id)
         {
-            using (SqlConnection conn = new SqlConnection(connectionString: @"Data Source=VIEWW7-2013-408\SQLEXPRESS;Initial Catalog=MyTest;Integrated Security=True;Connect Timeout=30"))
+            // using (SqlConnection conn = new SqlConnection(connectionString: @"Data Source=VIEWW7-2013-408\SQLEXPRESS;Initial Catalog=MyTest;Integrated Security=True;Connect Timeout=30"))
+            string connStr = ConfigurationManager.ConnectionStrings["MyConnectionString"].ConnectionString;
+            using (SqlConnection conn = new SqlConnection(connStr))
             {
                 conn.Open();
                 using (SqlCommand cmd = conn.CreateCommand())
@@ -72,6 +77,25 @@ namespace DAL
                 }
             }
         }
-
+        public static void Add(Adresse a)
+        {
+            // using (SqlConnection conn = new SqlConnection(connectionString: @"Data Source=VIEWW7-2013-408\SQLEXPRESS;Initial Catalog=MyTest;Integrated Security=True;Connect Timeout=30"))
+            string connStr = ConfigurationManager.ConnectionStrings["MyConnectionString"].ConnectionString;
+            using (SqlConnection conn = new SqlConnection(connStr))
+            {
+                conn.Open();
+                using (SqlCommand cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = "insert into adresse(rue, code_postal, ville, pays, id_personne)"
+                                      +"values('@Rue', '@Code_postal','@Ville', '@Pays', '@Id_personne')";
+                    cmd.Parameters.Add(new SqlParameter("@Rue", a.Rue));
+                    cmd.Parameters.Add(new SqlParameter("@Code_postal", a.CodePostal));
+                    cmd.Parameters.Add(new SqlParameter("@Ville", a.Ville));
+                    cmd.Parameters.Add(new SqlParameter("@Pays", a.Pays));
+                    cmd.Parameters.Add(new SqlParameter("@Id_personne", a.Id_personne));
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
     }
 }
