@@ -157,7 +157,28 @@ namespace DAL
         }
         // méthode pour modifier
         public static void Edit(Personne p) {
+            using (SqlConnection conn = new SqlConnection(connectionString: @"Data Source=VIEWW7-2013-408\SQLEXPRESS;Initial Catalog=MyTest;Integrated Security=True;Connect Timeout=30"))
+            {
+                conn.Open();
+                using (SqlCommand cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = "UPDATE personne SET nom ='@Nom', prenom='@Prenom', age='@Age',id_profession ='@Id_profession', id_categoriePersonne ='@Id_catPers',id_adresse = '@Id_addr', id_coordonnees ='@Id_coord' WHERE id ='@Id'";
+                    cmd.Parameters.AddWithValue("@Nom", p.Nom);
+                    cmd.Parameters.AddWithValue("@Prenom", p.Prenom);
+                    cmd.Parameters.AddWithValue("@Age", p.Age);
+                    cmd.Parameters.AddWithValue("@Id_profession", p.Id_profession);
+                    cmd.Parameters.AddWithValue("@Id_catPers", p.Id_categoriePersonne);
+                    cmd.Parameters.AddWithValue("@Id_addr", p.Id_adresse);
+                    cmd.Parameters.AddWithValue("@Id_coord", p.Id_coordonnees);
+                    // modifié dans les autres tables correspondants à la personne
+                    AdresseService.Edit(p.Adresse);
+                    // categorie personne
+                    CoordonneesService.Edit(p.Coord);
+                    ProfessionService.Edit(p.Profession);
 
+                    cmd.ExecuteNonQuery();
+                }
+            }
 
 
         }
@@ -172,7 +193,11 @@ namespace DAL
                     cmd.CommandText = "delete from personne where id = '@Id'";
                     cmd.Parameters.Add(new SqlParameter("@Id", id));
                     cmd.ExecuteNonQuery();
-
+                    // delete toute info dans les autres tables avec meme id_personne
+                    AdresseService.Delete(id);
+                    ContactService.Delete(id);
+                    CoordonneesService.Delete(id);
+                    ProfessionService.Delete(id);
                 }
             }
         }

@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace DAL
 {
+    //{}
     class CategoriePersonneService
     {
         public static List<CategoriePersonne> GetAll()
@@ -33,9 +34,23 @@ namespace DAL
                     }
                 }
             }
-
-
             return liste;
+        }
+        internal static void Delete(int id)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString: @"Data Source=VIEWW7-2013-408\SQLEXPRESS;Initial Catalog=MyTest;Integrated Security=True;Connect Timeout=30"))
+            {
+                conn.Open();
+                using (SqlCommand cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = "delete from categoriePersonne where id = '@Id'";
+                    cmd.Parameters.Add(new SqlParameter("@Id", id));
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+        internal static void add(CategoriePersonne c)
+        {
         }
     }
 }
