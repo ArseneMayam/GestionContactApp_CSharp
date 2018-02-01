@@ -1,6 +1,7 @@
 ﻿using EntitiesLib;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -33,7 +34,9 @@ namespace DAL
         }
         public static void Edit(Profession p)
         {
-            using (SqlConnection conn = new SqlConnection(connectionString: @"Data Source=VIEWW7-2013-408\SQLEXPRESS;Initial Catalog=MyTest;Integrated Security=True;Connect Timeout=30"))
+            //using (SqlConnection conn = new SqlConnection(connectionString: @"Data Source=VIEWW7-2013-408\SQLEXPRESS;Initial Catalog=MyTest;Integrated Security=True;Connect Timeout=30"))
+            string connStr = ConfigurationManager.ConnectionStrings["MyConnectionString"].ConnectionString;
+            using (SqlConnection conn = new SqlConnection(connStr))
             {
                 conn.Open();
                 using (SqlCommand cmd = conn.CreateCommand())
@@ -48,7 +51,9 @@ namespace DAL
         }
         public static void Delete(int id)
         {
-            using (SqlConnection conn = new SqlConnection(connectionString: @"Data Source=VIEWW7-2013-408\SQLEXPRESS;Initial Catalog=MyTest;Integrated Security=True;Connect Timeout=30"))
+            //using (SqlConnection conn = new SqlConnection(connectionString: @"Data Source=VIEWW7-2013-408\SQLEXPRESS;Initial Catalog=MyTest;Integrated Security=True;Connect Timeout=30"))
+            string connStr = ConfigurationManager.ConnectionStrings["MyConnectionString"].ConnectionString;
+            using (SqlConnection conn = new SqlConnection(connStr))
             {
                 conn.Open();
                 using (SqlCommand cmd = conn.CreateCommand())
