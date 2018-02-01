@@ -27,6 +27,23 @@ namespace EntitiesLib
             this.Pays = pays;
         }
 
+        public Adresse(string rue, string codePostal, string ville, string pays)
+        {
+            this.rue = rue;
+            this.codePostal = codePostal;
+            this.ville = ville;
+            this.pays = pays;
+        }
+
+        public Adresse(int id, string rue, string codePostal, string ville, string pays, int id_personne)
+        {
+            this.id = id;
+            this.rue = rue;
+            this.codePostal = codePostal;
+            this.ville = ville;
+            this.pays = pays;
+            this.Id_personne = id_personne;
+        }
 
         public int Id
         {
@@ -93,5 +110,17 @@ namespace EntitiesLib
             }
         }
 
+        public int Id_personne
+        {
+            get
+            {
+                return id_personne;
+            }
+
+            set
+            {
+                id_personne = value;
+            }
+        }
     }
 }
