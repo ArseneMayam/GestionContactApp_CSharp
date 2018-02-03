@@ -45,6 +45,15 @@ namespace EntitiesLib
             this.Id_personne = id_personne;
         }
 
+        public Adresse(string rue, string codePostal, string ville, string pays, int id_personne)
+        {
+            this.rue = rue;
+            this.codePostal = codePostal;
+            this.ville = ville;
+            this.pays = pays;
+            this.id_personne = id_personne;
+        }
+
         public int Id
         {
             get
@@ -114,13 +123,15 @@ namespace EntitiesLib
         {
             get
             {
-                return id_personne;
+                return this.id_personne;
             }
 
             set
             {
-                id_personne = value;
+                this.id_personne = value;
             }
         }
+
+     
     }
 }

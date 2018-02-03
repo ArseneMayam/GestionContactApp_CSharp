@@ -26,6 +26,12 @@ namespace EntitiesLib
             this.titre = titre;
         }
 
+        public CategoriePersonne(string titre, int id_personne)
+        {
+            this.titre = titre;
+            this.id_personne = id_personne;
+        }
+
         public int Id
         {
             get

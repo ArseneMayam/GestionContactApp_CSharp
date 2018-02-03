@@ -39,5 +39,10 @@ namespace BLL
         {
             PersonneService.Add(p);
         }
+        public static List<Personne> GetAllPersonne()
+        {
+           return PersonneService.GetAllPersonne();
+        }
+
     }
 }

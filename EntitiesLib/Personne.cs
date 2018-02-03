@@ -12,14 +12,15 @@ namespace EntitiesLib
         private string nom;
         private string prenom;
         private int age;
-        private int id_profession;
-        private int id_categoriePersonne;
-        private int id_coordonnees;
-        private int id_adresse;
+        private Contact contact;
         private Profession profession;
         private CategoriePersonne categorie;
         private Coordonnees coord;
         private Adresse adresse;
+        private int id_profession;
+        private int id_categoriePersonne;
+        private int id_coordonnees;
+        private int id_adresse;
         //constructeurs
         public Personne() { }
 
@@ -45,6 +46,55 @@ namespace EntitiesLib
             this.nom = nom;
             this.prenom = prenom;
             this.age = age;
+            this.profession = profession;
+            this.categorie = categorie;
+            this.coord = coord;
+            this.adresse = adresse;
+        }
+
+        public Personne(string nom, string prenom, int age, Profession profession, CategoriePersonne categorie, Coordonnees coord, Adresse adresse)
+        {
+            this.nom = nom;
+            this.prenom = prenom;
+            this.age = age;
+            this.profession = profession;
+            this.categorie = categorie;
+            this.coord = coord;
+            this.adresse = adresse;
+        }
+
+        public Personne(string nom, string prenom, int age, Contact contact, Profession profession, CategoriePersonne categorie, Coordonnees coord, Adresse adresse, int id_profession)
+        {
+            this.nom = nom;
+            this.prenom = prenom;
+            this.age = age;
+            this.contact = contact;
+            this.profession = profession;
+            this.categorie = categorie;
+            this.coord = coord;
+            this.adresse = adresse;
+            this.id_profession = id_profession;
+        }
+
+        public Personne(string nom, string prenom, int age, Contact contact, Profession profession, CategoriePersonne categorie, Coordonnees coord, Adresse adresse)
+        {
+            this.nom = nom;
+            this.prenom = prenom;
+            this.age = age;
+            this.contact = contact;
+            this.profession = profession;
+            this.categorie = categorie;
+            this.coord = coord;
+            this.adresse = adresse;
+        }
+
+        public Personne(int id, string nom, string prenom, int age, Contact contact, Profession profession, CategoriePersonne categorie, Coordonnees coord, Adresse adresse)
+        {
+            this.id = id;
+            this.nom = nom;
+            this.prenom = prenom;
+            this.age = age;
+            this.contact = contact;
             this.profession = profession;
             this.categorie = categorie;
             this.coord = coord;
@@ -208,5 +258,17 @@ namespace EntitiesLib
             }
         }
 
+        public Contact Contact
+        {
+            get
+            {
+                return contact;
+            }
+
+            set
+            {
+                contact = value;
+            }
+        }
     }
 }
