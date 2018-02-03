@@ -39,6 +39,14 @@ namespace EntitiesLib
             this.email = email;
         }
 
+        public Coordonnees(string telephone, string fax, string email, int id_personne)
+        {
+            this.telephone = telephone;
+            this.fax = fax;
+            this.email = email;
+            this.id_personne = id_personne;
+        }
+
         // propriétés
         public int Id
         {

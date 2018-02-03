@@ -32,6 +32,13 @@ namespace EntitiesLib
             this.nomEntreprise = nomEntreprise;
         }
 
+        public Profession(string titre, string nomEntreprise, int id_personne)
+        {
+            this.titre = titre;
+            this.nomEntreprise = nomEntreprise;
+            this.id_personne = id_personne;
+        }
+
         //propriétés
         public int Id
         {

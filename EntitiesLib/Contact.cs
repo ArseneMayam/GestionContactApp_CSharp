@@ -14,6 +14,17 @@ namespace EntitiesLib
 
         public Contact() { }
 
+        public Contact(int id_personne)
+        {
+            this.id_personne = id_personne;
+        }
+
+        public Contact(int id, int id_personne)
+        {
+            this.id = id;
+            this.id_personne = id_personne;
+        }
+
         public Contact(int id, int id_personne, Personne personne)
         {
             this.id = id;

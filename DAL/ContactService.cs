@@ -14,15 +14,16 @@ namespace DAL
     {
         public static void Add(int id)
         {
-            //using (SqlConnection conn = new SqlConnection(connectionString: @"Data Source=VIEWW7-2013-408\SQLEXPRESS;Initial Catalog=MyTest;Integrated Security=True;Connect Timeout=30"))
-            string connStr = ConfigurationManager.ConnectionStrings["MyConnectionString"].ConnectionString;
-            using (SqlConnection conn = new SqlConnection(connStr))
+            //string connStr = ConfigurationManager.ConnectionStrings["MyConnectionString"].ConnectionString;
+            //using (SqlConnection conn = new SqlConnection(connStr))
+            using (SqlConnection conn = new SqlConnection(connectionString: @"Data Source=VIEWW7-2013-408\SQLEXPRESS;Initial Catalog=tp_gestionContact;Integrated Security=True;Connect Timeout=5"))
             {
                 conn.Open();
                 using (SqlCommand cmd = conn.CreateCommand())
                 {
-                    cmd.CommandText = "insert into contact(id_personne)" +
-                        "values('@Id_personne')";
+                    cmd.CommandText = "insert into contact(id,id_personne)" +
+                        "values(@Id,@Id_personne)";
+                    cmd.Parameters.AddWithValue("@Id", id);
                     cmd.Parameters.AddWithValue("@Id_personne", id);
                     cmd.ExecuteNonQuery();
                 }
@@ -30,15 +31,15 @@ namespace DAL
         }
         public static void Delete(int id)
         {
-            //using (SqlConnection conn = new SqlConnection(connectionString: @"Data Source=VIEWW7-2013-408\SQLEXPRESS;Initial Catalog=MyTest;Integrated Security=True;Connect Timeout=30"))
-            string connStr = ConfigurationManager.ConnectionStrings["MyConnectionString"].ConnectionString;
-            using (SqlConnection conn = new SqlConnection(connStr))
+            //string connStr = ConfigurationManager.ConnectionStrings["MyConnectionString"].ConnectionString;
+            //using (SqlConnection conn = new SqlConnection(connStr))
+            using (SqlConnection conn = new SqlConnection(connectionString: @"Data Source=VIEWW7-2013-408\SQLEXPRESS;Initial Catalog=tp_gestionContact;Integrated Security=True;Connect Timeout=5"))
             {
                 conn.Open();
                 using (SqlCommand cmd = conn.CreateCommand())
                 {
-                    cmd.CommandText = "delete from contact where id = '@Id'";
-                    cmd.Parameters.Add(new SqlParameter("@Id", id));
+                    cmd.CommandText = "delete from contact where id = @Id";
+                    cmd.Parameters.AddWithValue("@Id", id);
                     cmd.ExecuteNonQuery();
                 }
             }

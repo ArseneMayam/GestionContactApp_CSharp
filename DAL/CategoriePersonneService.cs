@@ -41,30 +41,31 @@ namespace DAL
         }
         public static void Delete(int id)
         {
-            //using (SqlConnection conn = new SqlConnection(connectionString: @"Data Source=VIEWW7-2013-408\SQLEXPRESS;Initial Catalog=MyTest;Integrated Security=True;Connect Timeout=30"))
-            string connStr = ConfigurationManager.ConnectionStrings["MyConnectionString"].ConnectionString;
-            using (SqlConnection conn = new SqlConnection(connStr))
+            //string connStr = ConfigurationManager.ConnectionStrings["MyConnectionString"].ConnectionString;
+           // using (SqlConnection conn = new SqlConnection(connStr))
+            using (SqlConnection conn = new SqlConnection(connectionString: @"Data Source=VIEWW7-2013-408\SQLEXPRESS;Initial Catalog=tp_gestionContact;Integrated Security=True;Connect Timeout=5"))
             {
                 conn.Open();
                 using (SqlCommand cmd = conn.CreateCommand())
                 {
-                    cmd.CommandText = "delete from categoriePersonne where id = '@Id'";
-                    cmd.Parameters.Add(new SqlParameter("@Id", id));
+                    cmd.CommandText = "delete from categoriePersonne where id = @Id";
+                    cmd.Parameters.AddWithValue("@Id", id);
                     cmd.ExecuteNonQuery();
                 }
             }
         }
         public static void add(CategoriePersonne c)
         {
-            //using (SqlConnection conn = new SqlConnection(connectionString: @"Data Source=VIEWW7-2013-408\SQLEXPRESS;Initial Catalog=MyTest;Integrated Security=True;Connect Timeout=30"))
-            string connStr = ConfigurationManager.ConnectionStrings["MyConnectionString"].ConnectionString;
-            using (SqlConnection conn = new SqlConnection(connStr))
+           // string connStr = ConfigurationManager.ConnectionStrings["MyConnectionString"].ConnectionString;
+           // using (SqlConnection conn = new SqlConnection(connStr))
+            using (SqlConnection conn = new SqlConnection(connectionString: @"Data Source=VIEWW7-2013-408\SQLEXPRESS;Initial Catalog=tp_gestionContact;Integrated Security=True;Connect Timeout=5"))
             {
                 conn.Open();
                 using (SqlCommand cmd = conn.CreateCommand())
                 {
-                    cmd.CommandText = "insert into categoriePersonne(titre, id_personne)"+
-                        "values('@Titre', '@Id_personne')";
+                    cmd.CommandText = "insert into categoriePersonne(id,titre, id_personne)" +
+                        "values(@Id,@Titre, @Id_personne)";
+                    cmd.Parameters.AddWithValue("@Id", c.Id);
                     cmd.Parameters.AddWithValue("@Titre", c.Titre);
                     cmd.Parameters.AddWithValue("@Id_personne", c.Id_personne);
                     cmd.ExecuteNonQuery();
@@ -72,5 +73,21 @@ namespace DAL
             }
 
         }
+        public static void Edit(CategoriePersonne c)
+        {
+            using (SqlConnection conn = new SqlConnection(connectionString: @"Data Source=VIEWW7-2013-408\SQLEXPRESS;Initial Catalog=tp_gestionContact;Integrated Security=True;Connect Timeout=5"))
+            {
+                conn.Open();
+                using (SqlCommand cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = "UPDATE categoriePersonne SET titre =@Titre WHERE id =@Id";
+                    cmd.Parameters.AddWithValue("@Titre", c.Titre);
+                    cmd.Parameters.AddWithValue("@Id", c.Id);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+
+        }
+
     }
 }
