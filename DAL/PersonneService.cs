@@ -171,7 +171,45 @@ namespace DAL
             }
             return liste;
         }
-        // méthode pour modifier
+        public static List<Personne> GetByFname(string prenom)
+        {
+            List<Personne> liste = null;
+            //string connStr = ConfigurationManager.ConnectionStrings["MyConnectionString"].ConnectionString;
+            //using (SqlConnection conn = new SqlConnection(connStr))
+            using (SqlConnection conn = new SqlConnection(connectionString: @"Data Source=VIEWW7-2013-408\SQLEXPRESS;Initial Catalog=tp_gestionContact;Integrated Security=True;Connect Timeout=5"))
+            {
+                conn.Open();
+                using (SqlCommand cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = @"SELECT P.id, nom, prenom,age, PR.titre, nomEntreprise, CP.titre, telephone, fax, email, rue, code_postal,ville,pays
+                FROM personne P JOIN profession PR ON PR.id_personne = P.id
+				JOIN categoriePersonne CP ON CP.id_personne = P.id
+				JOIN coordonnees C ON P.id = C.id_personne
+				JOIN adresse A ON A.id_personne = P.id
+                WHERE P.prenom = @Prenom";
+                    cmd.Parameters.Add(new SqlParameter("@Prenom", prenom));
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        liste = new List<Personne>();
+                        while (reader.Read())
+                        {
+                            Personne p = new Personne();
+                            p.Id = reader.GetInt32(0);
+                            p.Nom = reader.GetString(1);
+                            p.Prenom = reader.GetString(2);
+                            p.Age = reader.GetInt32(3);
+                            p.Profession = new Profession(p.Id, reader.GetString(4), reader.GetString(5), p.Id);
+                            p.Categorie = new CategoriePersonne(p.Id, reader.GetString(6), p.Id);
+                            p.Coord = new Coordonnees(p.Id, reader.GetString(7), reader.GetString(8), reader.GetString(9), p.Id);
+                            p.Adresse = new Adresse(p.Id, reader.GetString(10), reader.GetString(11), reader.GetString(12), reader.GetString(13), p.Id);
+                            liste.Add(p);
+                        }
+                    }
+                }
+            }
+            return liste;
+        }
+
         public static void Edit(Personne p)
         {
             //string connStr = ConfigurationManager.ConnectionStrings["MyConnectionString"].ConnectionString;
