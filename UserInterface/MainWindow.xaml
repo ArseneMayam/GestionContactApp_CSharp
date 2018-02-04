@@ -1,0 +1,33 @@
+﻿<Window x:Class="UserInterface.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UserInterface"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="691.051" WindowStartupLocation="Manual" Loaded="Window_Loaded">
+    <Grid>
+        <ListView x:Name="listViewContacts" HorizontalAlignment="Left" Height="303" Margin="10,10,0,0" VerticalAlignment="Top" Width="455" SelectionChanged="listViewContacts_SelectionChanged">
+            <ListView.View>
+                <GridView>
+                    <GridView.ColumnHeaderContextMenu>
+                        <ContextMenu/>
+                    </GridView.ColumnHeaderContextMenu>
+                    <GridViewColumn Header="Nom" Width="150" />
+                    <GridViewColumn Header="Prenom" Width="150" />
+                        <GridViewColumn Header="Telephone" Width="150"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button x:Name="bttnAjoutContact" Content="Nouveau Contact" HorizontalAlignment="Left" Margin="523,281,0,0" VerticalAlignment="Top" Width="120" Height="32" Click="bttnAjoutContact_Click"/>
+        <Label x:Name="label" Content="Rechercher Par :" HorizontalAlignment="Left" Margin="523,11,0,0" VerticalAlignment="Top" Width="105"/>
+        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="523,34,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="rechercheTexte" HorizontalAlignment="Left" Height="23" Margin="523,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="label1" Content="Saisie" HorizontalAlignment="Left" Margin="523,60,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label2" Content="Afficher Par Ville:" HorizontalAlignment="Left" Margin="523,118,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="rechParVilleCombo" HorizontalAlignment="Left" Margin="523,146,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.497,0.608"/>
+        <Label x:Name="label3" Content="Afficher Par Pays" HorizontalAlignment="Left" Margin="523,172,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="rechParPaysCombo" HorizontalAlignment="Left" Margin="523,195,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="-0.1,0.603"/>
+
+    </Grid>
+</Window>

@@ -1,0 +1,40 @@
+﻿<Window x:Class="UserInterface.NouveauContact"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UserInterface"
+        mc:Ignorable="d"
+        Title="NouveauContact" Height="350" Width="691.051">
+    <Grid>
+        <Label x:Name="label" Content="Nom" HorizontalAlignment="Left" Margin="10,32,0,0" VerticalAlignment="Top" Width="73"/>
+        <TextBox x:Name="nomTxt" HorizontalAlignment="Left" Height="23" Margin="62,34,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextInput="nomTxt_TextInput"/>
+        <Label x:Name="label1" Content="Prenom" HorizontalAlignment="Left" Margin="10,83,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="prenomTxt" HorizontalAlignment="Left" Height="23" Margin="62,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextInput="prenomTxt_TextInput"/>
+        <Label x:Name="label2" Content="Telephone" HorizontalAlignment="Left" Margin="247,32,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label2_Copy" Content="Age" HorizontalAlignment="Left" Margin="10,128,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="ageTxt" HorizontalAlignment="Left" Height="23" Margin="62,128,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="45" TextInput="ageTxt_TextInput"/>
+        <TextBox x:Name="teletphoneTxt" HorizontalAlignment="Left" Height="23" Margin="313,32,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextInput="teletphoneTxt_TextInput"/>
+        <Label x:Name="label3" Content="Email" HorizontalAlignment="Left" Margin="247,81,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="emailTxt" HorizontalAlignment="Left" Height="23" Margin="313,83,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextInput="emailTxt_TextInput"/>
+        <Label x:Name="label4" Content="Fax" HorizontalAlignment="Left" Margin="247,128,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="faxTxt" HorizontalAlignment="Left" Height="23" Margin="313,128,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextInput="faxTxt_TextInput"/>
+        <Label x:Name="label5" Content="Profession&#xD;&#xA;" HorizontalAlignment="Left" Margin="488,32,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="professionTitreTxt" HorizontalAlignment="Left" Height="23" Margin="553,34,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="professionTitreTxt_TextChanged"/>
+        <Label x:Name="label6" Content="Entreprise&#xD;&#xA;" HorizontalAlignment="Left" Margin="488,83,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="nomEntrepriseTxt" HorizontalAlignment="Left" Height="23" Margin="553,81,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextInput="nomEntrepriseTxt_TextInput"/>
+        <Label x:Name="label7" Content="Rue" HorizontalAlignment="Left" Margin="10,215,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="rueTxt" HorizontalAlignment="Left" Height="23" Margin="62,215,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextInput="rueTxt_TextInput"/>
+        <Label x:Name="label8" Content="Ville&#xD;&#xA;" HorizontalAlignment="Left" Margin="247,215,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="villeTxt" HorizontalAlignment="Left" Height="23" Margin="313,215,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextInput="villeTxt_TextInput"/>
+        <Label x:Name="label9" Content="Code Postal" HorizontalAlignment="Left" Margin="480,215,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="codePostalTxt" HorizontalAlignment="Left" Height="23" Margin="553,215,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextInput="codePostalTxt_TextInput"/>
+        <Label x:Name="label10" Content="Pays" HorizontalAlignment="Left" Margin="10,279,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="paysTxt" HorizontalAlignment="Left" Height="23" Margin="62,279,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextInput="paysTxt_TextInput"/>
+        <Button x:Name="bttnEnregistrer" Content="Enrégistrer" HorizontalAlignment="Left" Margin="596,270,0,0" VerticalAlignment="Top" Width="77" Height="43" Click="bttnEnregistrer_Click"/>
+        <ComboBox x:Name="categorieComboxbBox" HorizontalAlignment="Left" Margin="313,279,0,0" VerticalAlignment="Top" Width="120" SelectionChanged="categorieComboxbBox_SelectionChanged"/>
+        <Label x:Name="label11" Content="Catégorie" HorizontalAlignment="Left" Margin="247,277,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="bttnAnnuler" Content="Annuler" HorizontalAlignment="Left" Margin="488,270,0,0" VerticalAlignment="Top" Width="88" Height="43" Click="bttnAnnuler_Click"/>
+
+    </Grid>
+</Window>
