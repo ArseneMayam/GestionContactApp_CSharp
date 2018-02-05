@@ -27,6 +27,9 @@ namespace BLL
         {
             return PersonneService.GetByName(nom);
         }
+        public static List<Personne> GetByFname(string prenom) {
+            return PersonneService.GetByFname(prenom);
+        }
         public static void Edit(Personne p)
         {
             PersonneService.Edit(p);
