@@ -149,7 +149,7 @@ namespace DAL
 				JOIN coordonnees C ON P.id = C.id_personne
 				JOIN adresse A ON A.id_personne = P.id
                 WHERE P.nom = @Nom";
-                    cmd.Parameters.Add(new SqlParameter("@Nom", nom));
+                    cmd.Parameters.AddWithValue("@Nom",nom);
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
                         liste = new List<Personne>();
@@ -187,7 +187,7 @@ namespace DAL
 				JOIN coordonnees C ON P.id = C.id_personne
 				JOIN adresse A ON A.id_personne = P.id
                 WHERE P.prenom = @Prenom";
-                    cmd.Parameters.Add(new SqlParameter("@Prenom", prenom));
+                    cmd.Parameters.AddWithValue("@Prenom", prenom);
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
                         liste = new List<Personne>();

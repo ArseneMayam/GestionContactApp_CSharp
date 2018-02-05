@@ -15,24 +15,24 @@ namespace DAL
         public static List<Adresse> GetAll()
         {
             List<Adresse> liste = null;
-            // using (SqlConnection conn = new SqlConnection(connectionString: @"Data Source=VIEWW7-2013-408\SQLEXPRESS;Initial Catalog=MyTest;Integrated Security=True;Connect Timeout=30"))
-            string connStr = ConfigurationManager.ConnectionStrings["MyConnectionString"].ConnectionString;
-            using (SqlConnection conn = new SqlConnection(connStr))
+            //string connStr = ConfigurationManager.ConnectionStrings["MyConnectionString"].ConnectionString;
+           // using (SqlConnection conn = new SqlConnection(connStr))
+            using (SqlConnection conn = new SqlConnection(connectionString: @"Data Source=VIEWW7-2013-408\SQLEXPRESS;Initial Catalog=tp_gestionContact;Integrated Security=True;Connect Timeout=5"))
             {
                 conn.Open();
                 using (SqlCommand cmd = conn.CreateCommand())
                 {
-                    cmd.CommandText =@"select * from adresse";
+                    cmd.CommandText = @"select * from adresse";
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
                         liste = new List<Adresse>();
-                        while(reader.Read())
+                        while (reader.Read())
                         {
                             Adresse a = new Adresse();
                             a.Id = reader.GetInt32(0);
                             a.Rue = reader.GetString(1);
-                            a.CodePostal = reader.GetString(2);
-                            a.Ville = reader.GetString(3);
+                            a.Ville = reader.GetString(2);
+                            a.CodePostal = reader.GetString(3);
                             a.Pays = reader.GetString(4);
                             liste.Add(a);
                         }

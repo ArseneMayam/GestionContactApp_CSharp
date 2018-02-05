@@ -37,6 +37,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -74,6 +75,12 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ModifierContact.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ModifierContact.Designer.cs">
+      <DependentUpon>ModifierContact.cs</DependentUpon>
+    </Compile>
     <Compile Include="NouveauContact.xaml.cs">
       <DependentUpon>NouveauContact.xaml</DependentUpon>
     </Compile>
@@ -90,6 +97,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="ModifierContact.resx">
+      <DependentUpon>ModifierContact.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

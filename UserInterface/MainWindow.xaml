@@ -15,19 +15,19 @@
                     </GridView.ColumnHeaderContextMenu>
                     <GridViewColumn Header="Nom" Width="150" />
                     <GridViewColumn Header="Prenom" Width="150" />
-                        <GridViewColumn Header="Telephone" Width="150"/>
+                    <GridViewColumn Header="Telephone" Width="150"/>
                 </GridView>
             </ListView.View>
         </ListView>
         <Button x:Name="bttnAjoutContact" Content="Nouveau Contact" HorizontalAlignment="Left" Margin="523,281,0,0" VerticalAlignment="Top" Width="120" Height="32" Click="bttnAjoutContact_Click"/>
         <Label x:Name="label" Content="Rechercher Par :" HorizontalAlignment="Left" Margin="523,11,0,0" VerticalAlignment="Top" Width="105"/>
-        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="523,34,0,0" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="rechercheTexte" HorizontalAlignment="Left" Height="23" Margin="523,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="label1" Content="Saisie" HorizontalAlignment="Left" Margin="523,60,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="523,34,0,0" VerticalAlignment="Top" Width="120" Loaded="comboBox_Loaded" SelectionChanged="comboBox_SelectionChanged"/>
+        <TextBox x:Name="rechercheTexte" HorizontalAlignment="Left" Height="23" Margin="523,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Text="Saisie" TextInput="rechercheTexte_TextInput"/>
         <Label x:Name="label2" Content="Afficher Par Ville:" HorizontalAlignment="Left" Margin="523,118,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="rechParVilleCombo" HorizontalAlignment="Left" Margin="523,146,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.497,0.608"/>
+        <ComboBox x:Name="rechParVilleCombo" HorizontalAlignment="Left" Margin="523,146,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.497,0.608" Loaded="rechParVilleCombo_Loaded" SelectionChanged="rechParVilleCombo_SelectionChanged"/>
         <Label x:Name="label3" Content="Afficher Par Pays" HorizontalAlignment="Left" Margin="523,172,0,0" VerticalAlignment="Top"/>
-        <ComboBox x:Name="rechParPaysCombo" HorizontalAlignment="Left" Margin="523,195,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="-0.1,0.603"/>
+        <ComboBox x:Name="rechParPaysCombo" HorizontalAlignment="Left" Margin="523,195,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="-0.1,0.603" Loaded="rechParPaysCombo_Loaded" SelectionChanged="rechParPaysCombo_SelectionChanged"/>
+        <Button x:Name="bttnRechercher" Content="Rechercher" HorizontalAlignment="Left" Margin="523,93,0,0" VerticalAlignment="Top" Width="120" Click="bttnRechercher_Click"/>
 
     </Grid>
 </Window>
